@@ -111,7 +111,7 @@ public class ClienteController {
     @CrossOrigin(origins = "*")
     @PostMapping("")
     private ResponseEntity<?> cadastrarCliente(@RequestBody Cliente cliente){
-        if(clienteRepository.existsByIdCliente(cliente.getIdCliente())){
+        if(!clienteRepository.existsByIdCliente(cliente.getIdCliente())){
 
             clienteRepository.save(ClienteEntity.builder()
                     .idCliente(cliente.getIdCliente())
